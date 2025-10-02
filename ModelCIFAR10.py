@@ -9,17 +9,27 @@ class Net(nn.Module):
         self.conv1 = nn.Conv2d(3, 32, kernel_size=3, stride=2, padding=1)
         self.bn1   = nn.BatchNorm2d(32)
 
+        self.conv1 = nn.Conv2d(3, 32, kernel_size=3, stride=2, padding=1)
+        self.bn1   = nn.BatchNorm2d(32)
+
         self.conv2 = nn.Conv2d(32, 64, kernel_size=3, stride=2, padding=1)
         self.bn2   = nn.BatchNorm2d(64)
 
-        self.conv3 = nn.Conv2d(64, 32, kernel_size=3, stride=2, padding=1)
-        self.bn3   = nn.BatchNorm2d(32)
+        self.conv3 = nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1)
+        self.bn3   = nn.BatchNorm2d(128)
+
+
+        self.Trans_1_1 = nn.Conv2d(128, 32, kernel_size=1, stride=1, padding=1)
+        # self.bn4   = nn.BatchNorm2d(128)
 
         self.conv4 = nn.Conv2d(32, 64, kernel_size=3, stride=2, padding=1)
         self.bn4   = nn.BatchNorm2d(64)
 
         self.conv5 = nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1)
         self.bn5   = nn.BatchNorm2d(128)
+
+        # self.conv5 = nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1)
+        # self.bn5   = nn.BatchNorm2d(128)
 
         self.conv1x1 = nn.Conv2d(128, 10, kernel_size=1)
 
@@ -28,7 +38,8 @@ class Net(nn.Module):
     def forward(self, x):
         x = F.relu(self.bn1(self.conv1(x)))   # 3 -> 32
         x = F.relu(self.bn2(self.conv2(x)))   # 32 -> 64
-        x = F.relu(self.bn3(self.conv3(x)))   # 64 -> 32
+        x = F.relu(self.bn3(self.conv3(x)))   # 64 -> 128
+        x = self.Trans_1_1(x)               # 128 -> 32
         x = F.relu(self.bn4(self.conv4(x)))   # 32 -> 64
         x = F.relu(self.bn5(self.conv5(x)))   # 64 -> 128
 
