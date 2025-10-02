@@ -1,14 +1,16 @@
 from __future__ import print_function
 import torch
 import torch.nn.functional as F
-import torch.optim as optim
-from torchvision import datasets, transforms
+from torchvision import datasets
 from torchsummary import summary
 from datetime import datetime
 from ModelCIFAR10 import Net, get_optimizer_and_scheduler
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
 import numpy as np
+import matplotlib.pyplot as plt
+from tqdm import tqdm
+import torch.multiprocessing as mp
 
 class AlbumentationsTransform:
     def __init__(self, transform):
@@ -21,42 +23,26 @@ class AlbumentationsTransform:
         return augmented["image"]
 
 
-# Train Phase transformations
-# train_transforms = transforms.Compose([
-#                                       #  transforms.Resize((28, 28)),
-#                                       #  transforms.ColorJitter(brightness=0.10, contrast=0.1, saturation=0.10, hue=0.1),
-#                                       transforms.RandomHorizontalFlip(p=0.5),   # NEW: horizontal flip
-#                                       transforms.RandomAffine(degrees=15, translate=(0.1, 0.1), scale=(0.9, 1.1)),
-#                                     #   transforms.Rand
-                                                
-#                                     #    transforms.RandomRotation((-10.0, 10.0), fill=(1,)),
-#                                     #    transforms.RandomAffine(degrees=7, translate=(0.05, 0.05), scale=(0.9, 1.1)),
-#                                        transforms.ToTensor(),
-#                                        transforms.Normalize((0.1307,), (0.3081,)) # The mean and std have to be sequences (e.g., tuples), therefore you should add a comma after the values.
-#                                        # Note the difference between (0.1307) and (0.1307,)
-#                                        ])
+# Transformations
 
 train_transforms = AlbumentationsTransform(A.Compose([
     A.HorizontalFlip(p=0.5),
-    A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.1, rotate_limit=10, p=0.5),
+    A.Affine(translate_percent={"x": 0.05, "y": 0.05},
+         scale=(0.9, 1.1),
+         rotate=(-10, 10),
+         p=0.5),
     A.CoarseDropout(
-        max_holes=1, min_holes=1,
-        max_height=16, max_width=16,
-        min_height=16, min_width=16,
-        fill_value=(0.4914, 0.4822, 0.4465),  # CIFAR-10 mean
+        num_holes_range=(1, 1),
+        hole_height_range=(16, 16),
+        hole_width_range=(16, 16),
+        fill = (125, 123, 114),
+        fill_mask = None,
         p=0.5
-    ),
+),
     A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
     ToTensorV2(),
 ]))
 
-# Test Phase transformations
-# test_transforms = transforms.Compose([
-#                                       #  transforms.Resize((28, 28)),
-#                                       #  transforms.ColorJitter(brightness=0.10, contrast=0.1, saturation=0.10, hue=0.1),
-#                                        transforms.ToTensor(),
-#                                        transforms.Normalize((0.1307,), (0.3081,))
-#                                        ])
 
 test_transforms = AlbumentationsTransform(A.Compose([
     A.Normalize(mean=(0.4914, 0.4822, 0.4465),
@@ -64,45 +50,7 @@ test_transforms = AlbumentationsTransform(A.Compose([
     ToTensorV2()
 ]))
 
-"""# Dataset and Creating Train/Test Split"""
 
-# train = datasets.MNIST('./data', train=True, download=True, transform=train_transforms)
-# test = datasets.MNIST('./data', train=False, download=True, transform=test_transforms)
-
-train = datasets.CIFAR10('./data', train=True, download=True, transform=train_transforms)
-test = datasets.CIFAR10('./data', train=False, download=True, transform=test_transforms)
-
-SEED = 1
-
-# CUDA?
-cuda = torch.cuda.is_available()
-print("CUDA Available?", cuda)
-
-# For reproducibility
-torch.manual_seed(SEED)
-
-if cuda:
-    torch.cuda.manual_seed(SEED)
-
-# dataloader arguments - something you'll fetch these from cmdprmt
-dataloader_args_train = dict(shuffle=True, batch_size=64, num_workers=0, pin_memory=True) if cuda else dict(shuffle=True, batch_size=64)
-
-# train dataloader
-train_loader = torch.utils.data.DataLoader(train, **dataloader_args_train)
-
-dataloader_args_test = dict(shuffle=False, batch_size=1000, num_workers=0, pin_memory=True) if cuda else dict(shuffle=True, batch_size=64)
-# test dataloader
-test_loader = torch.utils.data.DataLoader(test, **dataloader_args_test)
-
-
-use_cuda = torch.cuda.is_available()
-device = torch.device("cuda" if use_cuda else "cpu")
-print(device)
-model = Net().to(device)
-summary(model, input_size=(3, 32, 32))
-
-
-from tqdm import tqdm
 
 train_losses = []
 test_losses = []
@@ -177,24 +125,83 @@ def test(model, device, test_loader):
           f"Accuracy: {correct}/{len(test_loader.dataset)} "
           f"({accuracy:.2f}%)\n")
 
-    return test_loss   
+    return test_loss,accuracy
 
 
 
-model =  Net().to(device)
-optimizer, scheduler = get_optimizer_and_scheduler(model,len(train_loader), EPOCHS=50)
+
 
 if __name__ == "__main__":
-    EPOCHS = 50
-    for epoch in range(EPOCHS):
-        print("EPOCH:", epoch+1)
+
+    mp.set_start_method('spawn', force=True)  # ✅ Windows-safe
+
+    train_dataset = datasets.CIFAR10('./data', train=True, download=True, transform=train_transforms)
+    test_dataset = datasets.CIFAR10('./data', train=False, download=True, transform=test_transforms)
+
+    SEED = 1
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
+    # CUDA?
+    cuda = torch.cuda.is_available()
+    print("CUDA Available?", cuda)
+
+    # For reproducibility
+
+
+    if cuda:
+        torch.cuda.manual_seed(SEED)
+    else:
+        torch.manual_seed(SEED)
+
+    # dataloader arguments - something you'll fetch these from cmdprmt
+    dataloader_args_train = dict(shuffle=True, batch_size=64, num_workers=2, pin_memory=True) if cuda else dict(shuffle=True, batch_size=64)
+
+    # train dataloader
+    train_loader = torch.utils.data.DataLoader(train_dataset, **dataloader_args_train)
+
+    dataloader_args_test = dict(shuffle=False, batch_size=1000, num_workers=2, pin_memory=True) if cuda else dict(shuffle=False, batch_size=64)
+    # test dataloader
+    test_loader = torch.utils.data.DataLoader(test_dataset, **dataloader_args_test)
+
+
+    use_cuda = torch.cuda.is_available()
+    device = torch.device("cuda" if use_cuda else "cpu")
+    print(device)
+    model = Net().to(device)
+    summary(model, input_size=(3, 32, 32))
+
+    model =  Net().to(device)
+    optimizer, scheduler = get_optimizer_and_scheduler(model,len(train_loader), EPOCHS=200)
+
+
+    EPOCHS = 200
+    target_acc = 85.0
+    epoch = 0
+    best_acc = 0.0
+    # for epoch in range(EPOCHS):
+    while True:
+        epoch+=1
+        print("EPOCH:", epoch)
         print(datetime.now().strftime("%d%m%Y-%H%M"))
-        train(model, device, train_loader, optimizer, scheduler, epoch+1)
+        train(model, device, train_loader, optimizer, scheduler, epoch)
         print(datetime.now().strftime("%d%m%Y-%H%M"))
-        val_loss=test(model, device, test_loader)
+        val_loss,val_acc=test(model, device, test_loader)
+        if val_acc > best_acc:
+            best_acc = val_acc
+
+        print(f"Validation Accuracy: {val_acc:.2f}% | Best Accuracy: {best_acc:.2f}%")
+        print("-----------------------------------------------")
+    
+        if val_acc >= target_acc:
+            print(f"Target reached! Accuracy = {val_acc:.2f}% at epoch {epoch}")
+            break
+    
+        if epoch >= EPOCHS:  # safeguard stop
+            print(f"Max epochs {EPOCHS} reached. Best Accuracy = {best_acc:.2f}%")
+            break
         
         print("-----------------------------------------------")
-    import matplotlib.pyplot as plt
+    
     fig, axs = plt.subplots(2,2,figsize=(15,10))
 
     # axs[0, 0].plot(train_losses)

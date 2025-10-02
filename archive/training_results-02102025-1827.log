@@ -1,0 +1,830 @@
+(.venv) PS C:\Raghu\MyLearnings\ERA_V4\S7-27092025\cifar10_image_classication> python .\ExperimentCIFAR10.py
+Files already downloaded and verified
+Files already downloaded and verified
+CUDA Available? True
+cuda
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 32, 16, 16]             864
+       BatchNorm2d-2           [-1, 32, 16, 16]              64
+            Conv2d-3             [-1, 32, 8, 8]             288
+            Conv2d-4             [-1, 64, 8, 8]           2,048
+       BatchNorm2d-5             [-1, 64, 8, 8]             128
+            Conv2d-6            [-1, 128, 8, 8]          73,728
+       BatchNorm2d-7            [-1, 128, 8, 8]             256
+            Conv2d-8             [-1, 96, 4, 4]         110,592
+       BatchNorm2d-9             [-1, 96, 4, 4]             192
+           Conv2d-10             [-1, 10, 4, 4]             960
+AdaptiveAvgPool2d-11             [-1, 10, 1, 1]               0
+================================================================
+Total params: 189,120
+Trainable params: 189,120
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.01
+Forward/backward pass size (MB): 0.35
+Params size (MB): 0.72
+Estimated Total Size (MB): 1.09
+----------------------------------------------------------------
+EPOCH: 1
+02102025-1724
+  0%|                                                                                                                                                                                     | 0/782 [00:00<?, ?it/s]C:\Raghu\MyLearnings\ERA_V4\S7-27092025\cifar10_image_classication\.venv\Lib\site-packages\torch\autograd\graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at ..\aten\src\ATen\native\cudnn\Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Epoch 2 Loss=1.2543 Batch_id=781 Accuracy=39.21: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:40<00:00, 19.16it/s]
+02102025-1725
+
+Test set: Average loss: 1.4361, Accuracy: 4774/10000 (47.74%)
+
+Validation Accuracy: 47.74% | Best Accuracy: 47.74%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 2
+02102025-1725
+Epoch 3 Loss=1.3018 Batch_id=781 Accuracy=50.06: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:52<00:00, 15.02it/s] 
+02102025-1726
+
+Test set: Average loss: 1.1672, Accuracy: 5760/10000 (57.60%)
+
+Validation Accuracy: 57.60% | Best Accuracy: 57.60%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 3
+02102025-1726
+Epoch 4 Loss=1.4628 Batch_id=781 Accuracy=54.46: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:15<00:00, 10.37it/s] 
+02102025-1727
+
+Test set: Average loss: 1.1914, Accuracy: 5696/10000 (56.96%)
+
+Validation Accuracy: 56.96% | Best Accuracy: 57.60%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 4
+02102025-1727
+Epoch 5 Loss=1.3117 Batch_id=781 Accuracy=56.75: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:04<00:00, 12.08it/s] 
+02102025-1728
+
+Test set: Average loss: 1.0827, Accuracy: 6096/10000 (60.96%)
+
+Validation Accuracy: 60.96% | Best Accuracy: 60.96%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 5
+02102025-1728
+Epoch 6 Loss=0.9833 Batch_id=781 Accuracy=58.99: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:03<00:00, 12.35it/s] 
+02102025-1729
+
+Test set: Average loss: 1.0207, Accuracy: 6393/10000 (63.93%)
+
+Validation Accuracy: 63.93% | Best Accuracy: 63.93%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 6
+02102025-1729
+Epoch 7 Loss=1.2165 Batch_id=781 Accuracy=61.10: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:04<00:00, 12.16it/s] 
+02102025-1730
+
+Test set: Average loss: 1.0494, Accuracy: 6298/10000 (62.98%)
+
+Validation Accuracy: 62.98% | Best Accuracy: 63.93%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 7
+02102025-1730
+Epoch 8 Loss=1.0889 Batch_id=781 Accuracy=62.55: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:05<00:00, 11.86it/s] 
+02102025-1732
+
+Test set: Average loss: 0.9202, Accuracy: 6740/10000 (67.40%)
+
+Validation Accuracy: 67.40% | Best Accuracy: 67.40%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 8
+02102025-1732
+Epoch 9 Loss=1.0529 Batch_id=781 Accuracy=64.27: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:07<00:00, 11.63it/s] 
+02102025-1733
+
+Test set: Average loss: 0.8884, Accuracy: 6887/10000 (68.87%)
+
+Validation Accuracy: 68.87% | Best Accuracy: 68.87%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 9
+02102025-1733
+Epoch 10 Loss=1.6247 Batch_id=781 Accuracy=65.37: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:08<00:00, 11.41it/s] 
+02102025-1734
+
+Test set: Average loss: 0.8536, Accuracy: 6993/10000 (69.93%)
+
+Validation Accuracy: 69.93% | Best Accuracy: 69.93%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 10
+02102025-1734
+Epoch 11 Loss=0.9771 Batch_id=781 Accuracy=66.28: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:10<00:00, 11.03it/s] 
+02102025-1735
+
+Test set: Average loss: 0.8005, Accuracy: 7200/10000 (72.00%)
+
+Validation Accuracy: 72.00% | Best Accuracy: 72.00%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 11
+02102025-1735
+Epoch 12 Loss=0.6831 Batch_id=781 Accuracy=67.56: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:11<00:00, 10.90it/s] 
+02102025-1736
+
+Test set: Average loss: 0.7721, Accuracy: 7312/10000 (73.12%)
+
+Validation Accuracy: 73.12% | Best Accuracy: 73.12%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 12
+02102025-1736
+Epoch 13 Loss=1.2694 Batch_id=781 Accuracy=68.27: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:12<00:00, 10.82it/s] 
+02102025-1738
+
+Test set: Average loss: 0.8331, Accuracy: 7116/10000 (71.16%)
+
+Validation Accuracy: 71.16% | Best Accuracy: 73.12%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 13
+02102025-1738
+Epoch 14 Loss=1.1819 Batch_id=781 Accuracy=68.81: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:12<00:00, 10.83it/s] 
+02102025-1739
+
+Test set: Average loss: 0.8653, Accuracy: 7004/10000 (70.04%)
+
+Validation Accuracy: 70.04% | Best Accuracy: 73.12%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 14
+02102025-1739
+Epoch 15 Loss=1.1031 Batch_id=781 Accuracy=69.43: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:12<00:00, 10.81it/s] 
+02102025-1740
+
+Test set: Average loss: 0.7445, Accuracy: 7335/10000 (73.35%)
+
+Validation Accuracy: 73.35% | Best Accuracy: 73.35%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 15
+02102025-1740
+Epoch 16 Loss=1.1643 Batch_id=781 Accuracy=70.16: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.69it/s] 
+02102025-1741
+
+Test set: Average loss: 0.7846, Accuracy: 7289/10000 (72.89%)
+
+Validation Accuracy: 72.89% | Best Accuracy: 73.35%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 16
+02102025-1741
+Epoch 17 Loss=0.8721 Batch_id=781 Accuracy=70.71: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:12<00:00, 10.78it/s] 
+02102025-1743
+
+Test set: Average loss: 0.7502, Accuracy: 7403/10000 (74.03%)
+
+Validation Accuracy: 74.03% | Best Accuracy: 74.03%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 17
+02102025-1743
+Epoch 18 Loss=0.7480 Batch_id=781 Accuracy=71.18: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.70it/s] 
+02102025-1744
+
+Test set: Average loss: 0.7183, Accuracy: 7488/10000 (74.88%)
+
+Validation Accuracy: 74.88% | Best Accuracy: 74.88%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 18
+02102025-1744
+Epoch 19 Loss=1.2245 Batch_id=781 Accuracy=71.34: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:12<00:00, 10.73it/s] 
+02102025-1745
+
+Test set: Average loss: 0.6981, Accuracy: 7562/10000 (75.62%)
+
+Validation Accuracy: 75.62% | Best Accuracy: 75.62%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 19
+02102025-1745
+Epoch 20 Loss=1.3222 Batch_id=781 Accuracy=71.70: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.64it/s] 
+02102025-1747
+
+Test set: Average loss: 0.6978, Accuracy: 7564/10000 (75.64%)
+
+Validation Accuracy: 75.64% | Best Accuracy: 75.64%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 20
+02102025-1747
+Epoch 21 Loss=1.2014 Batch_id=781 Accuracy=72.36: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:12<00:00, 10.76it/s] 
+02102025-1748
+
+Test set: Average loss: 0.7007, Accuracy: 7602/10000 (76.02%)
+
+Validation Accuracy: 76.02% | Best Accuracy: 76.02%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 21
+02102025-1748
+Epoch 22 Loss=0.9749 Batch_id=781 Accuracy=72.21: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.71it/s] 
+02102025-1749
+
+Test set: Average loss: 0.7447, Accuracy: 7413/10000 (74.13%)
+
+Validation Accuracy: 74.13% | Best Accuracy: 76.02%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 22
+02102025-1749
+Epoch 23 Loss=0.4346 Batch_id=781 Accuracy=72.59: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.63it/s] 
+02102025-1750
+
+Test set: Average loss: 0.7247, Accuracy: 7499/10000 (74.99%)
+
+Validation Accuracy: 74.99% | Best Accuracy: 76.02%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 23
+02102025-1750
+Epoch 24 Loss=0.8536 Batch_id=781 Accuracy=73.17: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.65it/s] 
+02102025-1752
+
+Test set: Average loss: 0.7045, Accuracy: 7577/10000 (75.77%)
+
+Validation Accuracy: 75.77% | Best Accuracy: 76.02%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 24
+02102025-1752
+Epoch 25 Loss=0.7566 Batch_id=781 Accuracy=73.26: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:14<00:00, 10.55it/s] 
+02102025-1753
+
+Test set: Average loss: 0.6842, Accuracy: 7599/10000 (75.99%)
+
+Validation Accuracy: 75.99% | Best Accuracy: 76.02%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 25
+02102025-1753
+Epoch 26 Loss=0.6780 Batch_id=781 Accuracy=73.63: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.62it/s] 
+02102025-1754
+
+Test set: Average loss: 0.6785, Accuracy: 7619/10000 (76.19%)
+
+Validation Accuracy: 76.19% | Best Accuracy: 76.19%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 26
+02102025-1754
+Epoch 27 Loss=0.9550 Batch_id=781 Accuracy=74.08: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:16<00:00, 10.17it/s] 
+02102025-1756
+
+Test set: Average loss: 0.6826, Accuracy: 7688/10000 (76.88%)
+
+Validation Accuracy: 76.88% | Best Accuracy: 76.88%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 27
+02102025-1756
+Epoch 28 Loss=1.2985 Batch_id=781 Accuracy=73.98: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:14<00:00, 10.56it/s] 
+02102025-1757
+
+Test set: Average loss: 0.6660, Accuracy: 7702/10000 (77.02%)
+
+Validation Accuracy: 77.02% | Best Accuracy: 77.02%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 28
+02102025-1757
+Epoch 29 Loss=0.3831 Batch_id=781 Accuracy=74.52: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:15<00:00, 10.36it/s] 
+02102025-1758
+
+Test set: Average loss: 0.6550, Accuracy: 7706/10000 (77.06%)
+
+Validation Accuracy: 77.06% | Best Accuracy: 77.06%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 29
+02102025-1758
+Epoch 30 Loss=0.7381 Batch_id=781 Accuracy=74.58: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:15<00:00, 10.43it/s] 
+02102025-1759
+
+Test set: Average loss: 0.6561, Accuracy: 7720/10000 (77.20%)
+
+Validation Accuracy: 77.20% | Best Accuracy: 77.20%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 30
+02102025-1759
+Epoch 31 Loss=1.0750 Batch_id=781 Accuracy=75.13: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:14<00:00, 10.45it/s] 
+02102025-1801
+
+Test set: Average loss: 0.6708, Accuracy: 7699/10000 (76.99%)
+
+Validation Accuracy: 76.99% | Best Accuracy: 77.20%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 31
+02102025-1801
+Epoch 32 Loss=0.4708 Batch_id=781 Accuracy=75.24: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:14<00:00, 10.54it/s] 
+02102025-1802
+
+Test set: Average loss: 0.6524, Accuracy: 7773/10000 (77.73%)
+
+Validation Accuracy: 77.73% | Best Accuracy: 77.73%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 32
+02102025-1802
+Epoch 33 Loss=0.7571 Batch_id=781 Accuracy=75.99: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.59it/s] 
+02102025-1803
+
+Test set: Average loss: 0.6631, Accuracy: 7728/10000 (77.28%)
+
+Validation Accuracy: 77.28% | Best Accuracy: 77.73%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 33
+02102025-1803
+Epoch 34 Loss=0.5851 Batch_id=781 Accuracy=75.91: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.62it/s] 
+02102025-1805
+
+Test set: Average loss: 0.6418, Accuracy: 7808/10000 (78.08%)
+
+Validation Accuracy: 78.08% | Best Accuracy: 78.08%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 34
+02102025-1805
+Epoch 35 Loss=0.7491 Batch_id=781 Accuracy=76.21: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.58it/s] 
+02102025-1806
+
+Test set: Average loss: 0.6331, Accuracy: 7893/10000 (78.93%)
+
+Validation Accuracy: 78.93% | Best Accuracy: 78.93%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 35
+02102025-1806
+Epoch 36 Loss=0.8563 Batch_id=781 Accuracy=76.65: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.62it/s] 
+02102025-1807
+
+Test set: Average loss: 0.6369, Accuracy: 7846/10000 (78.46%)
+
+Validation Accuracy: 78.46% | Best Accuracy: 78.93%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 36
+02102025-1807
+Epoch 37 Loss=0.4184 Batch_id=781 Accuracy=77.11: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.62it/s] 
+02102025-1808
+
+Test set: Average loss: 0.6206, Accuracy: 7900/10000 (79.00%)
+
+Validation Accuracy: 79.00% | Best Accuracy: 79.00%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 37
+02102025-1808
+Epoch 38 Loss=0.6786 Batch_id=781 Accuracy=77.15: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:14<00:00, 10.45it/s] 
+02102025-1810
+
+Test set: Average loss: 0.6266, Accuracy: 7856/10000 (78.56%)
+
+Validation Accuracy: 78.56% | Best Accuracy: 79.00%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 38
+02102025-1810
+Epoch 39 Loss=0.6286 Batch_id=781 Accuracy=77.71: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:17<00:00, 10.06it/s] 
+02102025-1811
+
+Test set: Average loss: 0.6022, Accuracy: 7949/10000 (79.49%)
+
+Validation Accuracy: 79.49% | Best Accuracy: 79.49%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 39
+02102025-1811
+Epoch 40 Loss=0.4686 Batch_id=781 Accuracy=78.17: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:15<00:00, 10.41it/s] 
+02102025-1812
+
+Test set: Average loss: 0.5962, Accuracy: 7967/10000 (79.67%)
+
+Validation Accuracy: 79.67% | Best Accuracy: 79.67%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 40
+02102025-1812
+Epoch 41 Loss=0.8244 Batch_id=781 Accuracy=78.68: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:14<00:00, 10.53it/s] 
+02102025-1814
+
+Test set: Average loss: 0.5940, Accuracy: 7983/10000 (79.83%)
+
+Validation Accuracy: 79.83% | Best Accuracy: 79.83%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 41
+02102025-1814
+Epoch 42 Loss=0.7604 Batch_id=781 Accuracy=79.06: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.64it/s] 
+02102025-1815
+
+Test set: Average loss: 0.5799, Accuracy: 8020/10000 (80.20%)
+
+Validation Accuracy: 80.20% | Best Accuracy: 80.20%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 42
+02102025-1815
+Epoch 43 Loss=0.9205 Batch_id=781 Accuracy=79.52: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:14<00:00, 10.50it/s] 
+02102025-1816
+
+Test set: Average loss: 0.5802, Accuracy: 8016/10000 (80.16%)
+
+Validation Accuracy: 80.16% | Best Accuracy: 80.20%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 43
+02102025-1816
+Epoch 44 Loss=0.7991 Batch_id=781 Accuracy=79.76: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:14<00:00, 10.47it/s] 
+02102025-1818
+
+Test set: Average loss: 0.5666, Accuracy: 8084/10000 (80.84%)
+
+Validation Accuracy: 80.84% | Best Accuracy: 80.84%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 44
+02102025-1818
+Epoch 45 Loss=0.4865 Batch_id=781 Accuracy=79.99: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:14<00:00, 10.45it/s] 
+02102025-1819
+
+Test set: Average loss: 0.5734, Accuracy: 8046/10000 (80.46%)
+
+Validation Accuracy: 80.46% | Best Accuracy: 80.84%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 45
+02102025-1819
+Epoch 46 Loss=0.7933 Batch_id=781 Accuracy=80.88: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:14<00:00, 10.57it/s] 
+02102025-1820
+
+Test set: Average loss: 0.5619, Accuracy: 8101/10000 (81.01%)
+
+Validation Accuracy: 81.01% | Best Accuracy: 81.01%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 46
+02102025-1820
+Epoch 47 Loss=1.0043 Batch_id=781 Accuracy=81.09: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:13<00:00, 10.60it/s] 
+02102025-1821
+
+Test set: Average loss: 0.5640, Accuracy: 8085/10000 (80.85%)
+
+Validation Accuracy: 80.85% | Best Accuracy: 81.01%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 47
+02102025-1821
+Epoch 48 Loss=0.2519 Batch_id=781 Accuracy=81.18: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:14<00:00, 10.47it/s] 
+02102025-1823
+
+Test set: Average loss: 0.5541, Accuracy: 8116/10000 (81.16%)
+
+Validation Accuracy: 81.16% | Best Accuracy: 81.16%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 48
+02102025-1823
+Epoch 49 Loss=0.5164 Batch_id=781 Accuracy=81.72: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:15<00:00, 10.37it/s] 
+02102025-1824
+
+Test set: Average loss: 0.5531, Accuracy: 8116/10000 (81.16%)
+
+Validation Accuracy: 81.16% | Best Accuracy: 81.16%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 49
+02102025-1824
+Epoch 50 Loss=0.5023 Batch_id=781 Accuracy=81.62: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:14<00:00, 10.44it/s] 
+02102025-1825
+
+Test set: Average loss: 0.5535, Accuracy: 8114/10000 (81.14%)
+
+Validation Accuracy: 81.14% | Best Accuracy: 81.16%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 50
+02102025-1825
+Epoch 51 Loss=0.7805 Batch_id=781 Accuracy=81.87: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:14<00:00, 10.45it/s] 
+02102025-1827
+
+Test set: Average loss: 0.5516, Accuracy: 8129/10000 (81.29%)
+
+Validation Accuracy: 81.29% | Best Accuracy: 81.29%
+-----------------------------------------------
+-----------------------------------------------
+EPOCH: 51
+02102025-1827
+  0%|                                                                                                                                                                                     | 0/782 [00:00<?, ?it/s] 
+Traceback (most recent call last):
+  File "C:\Raghu\MyLearnings\ERA_V4\S7-27092025\cifar10_image_classication\ExperimentCIFAR10.py", line 182, in <module>
+    train(model, device, train_loader, optimizer, scheduler, epoch+1)
+  File "C:\Raghu\MyLearnings\ERA_V4\S7-27092025\cifar10_image_classication\ExperimentCIFAR10.py", line 124, in train
+    scheduler.step()
+  File "C:\Raghu\MyLearnings\ERA_V4\S7-27092025\cifar10_image_classication\.venv\Lib\site-packages\torch\optim\lr_scheduler.py", line 154, in step
+    values = self.get_lr()
+             ^^^^^^^^^^^^^
+  File "C:\Raghu\MyLearnings\ERA_V4\S7-27092025\cifar10_image_classication\.venv\Lib\site-packages\torch\optim\lr_scheduler.py", line 1784, in get_lr
+    raise ValueError("Tried to step {} times. The specified number of total steps is {}"
+ValueError: Tried to step 39101 times. The specified number of total steps is 39100
+(.venv) PS C:\Raghu\MyLearnings\ERA_V4\S7-27092025\cifar10_image_classication> 
+
+
+================================================================================================================================
+
+
+from __future__ import print_function
+import torch
+import torch.nn.functional as F
+import torch.optim as optim
+from torchvision import datasets, transforms
+from torchsummary import summary
+from datetime import datetime
+from ModelCIFAR10 import Net, get_optimizer_and_scheduler
+import albumentations as A
+from albumentations.pytorch import ToTensorV2
+import numpy as np
+
+class AlbumentationsTransform:
+    def __init__(self, transform):
+        self.transform = transform
+
+    def __call__(self, img):
+        # Albumentations works with numpy, so convert PIL → numpy
+        img = np.array(img)
+        augmented = self.transform(image=img)
+        return augmented["image"]
+
+# warmup_transforms = AlbumentationsTransform(A.Compose([
+#     A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
+#     ToTensorV2(),
+# ]))
+
+
+train_transforms = AlbumentationsTransform(A.Compose([
+    A.HorizontalFlip(p=0.5),
+    A.Affine(translate_percent={"x": 0.05, "y": 0.05},
+         scale=(0.9, 1.1),
+         rotate=(-10, 10),
+         p=0.5),
+    A.CoarseDropout(
+        num_holes_range=(1, 1),
+        hole_height_range=(16, 16),
+        hole_width_range=(16, 16),
+        fill = (125, 123, 114),
+        fill_mask = None,
+        p=0.5
+),
+    A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
+    ToTensorV2(),
+]))
+
+
+test_transforms = AlbumentationsTransform(A.Compose([
+    A.Normalize(mean=(0.4914, 0.4822, 0.4465),
+                std=(0.2023, 0.1994, 0.2010)),
+    ToTensorV2()
+]))
+
+"""# Dataset and Creating Train/Test Split"""
+
+train = datasets.CIFAR10('./data', train=True, download=True, transform=train_transforms)
+test = datasets.CIFAR10('./data', train=False, download=True, transform=test_transforms)
+
+SEED = 1
+torch.backends.cudnn.benchmark = False
+torch.backends.cudnn.deterministic = True
+# CUDA?
+cuda = torch.cuda.is_available()
+print("CUDA Available?", cuda)
+
+# For reproducibility
+torch.manual_seed(SEED)
+
+if cuda:
+    torch.cuda.manual_seed(SEED)
+
+# dataloader arguments - something you'll fetch these from cmdprmt
+dataloader_args_train = dict(shuffle=True, batch_size=64, num_workers=0, pin_memory=True) if cuda else dict(shuffle=True, batch_size=64)
+
+# train dataloader
+train_loader = torch.utils.data.DataLoader(train, **dataloader_args_train)
+
+dataloader_args_test = dict(shuffle=False, batch_size=1000, num_workers=0, pin_memory=True) if cuda else dict(shuffle=True, batch_size=64)
+# test dataloader
+test_loader = torch.utils.data.DataLoader(test, **dataloader_args_test)
+
+
+use_cuda = torch.cuda.is_available()
+device = torch.device("cuda" if use_cuda else "cpu")
+print(device)
+model = Net().to(device)
+summary(model, input_size=(3, 32, 32))
+
+
+from tqdm import tqdm
+
+train_losses = []
+test_losses = []
+train_acc = []
+test_acc = []
+
+
+def train(model, device, train_loader, optimizer, scheduler, epoch):
+  model.train()
+  pbar = tqdm(train_loader)
+  correct = 0
+  processed = 0
+  running_loss = 0.0
+  for batch_idx, (data, target) in enumerate(pbar):
+    # get samples
+    data, target = data.to(device), target.to(device)
+
+    # Init
+    optimizer.zero_grad()
+    # In PyTorch, we need to set the gradients to zero before starting to do backpropragation because PyTorch accumulates the gradients on subsequent backward passes.
+    # Because of this, when you start your training loop, ideally you should zero out the gradients so that you do the parameter update correctly.
+
+    # Predict
+    y_pred = model(data)
+
+    # Calculate loss
+    loss = F.nll_loss(y_pred, target)
+    # train_losses.append(loss.item())
+
+    # Backpropagation
+    loss.backward()
+    optimizer.step()
+
+    scheduler.step()
+    running_loss += loss.item()
+
+    # Update pbar-tqdm
+
+    pred = y_pred.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
+    correct += pred.eq(target.view_as(pred)).sum().item()
+    processed += len(data)
+
+    pbar.set_description(
+        desc=f'Epoch {epoch} Loss={loss.item():.4f} '
+             f'Batch_id={batch_idx} '
+             f'Accuracy={100*correct/processed:0.2f}'
+    )
+
+    # train_losses.append(loss / len(train_loader))
+    train_losses.append(loss.item()) 
+    train_acc.append(100. * correct / processed)
+
+def test(model, device, test_loader):
+    model.eval()
+    test_loss = 0
+    correct = 0
+    with torch.no_grad():
+        for data, target in test_loader:
+            data, target = data.to(device), target.to(device)
+            output = model(data)
+            test_loss += F.nll_loss(output, target, reduction='sum').item()  # sum up batch loss
+            pred = output.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
+            correct += pred.eq(target.view_as(pred)).sum().item()
+
+    test_loss /= len(test_loader.dataset)
+    accuracy = 100. * correct / len(test_loader.dataset)
+
+    test_losses.append(test_loss)
+    test_acc.append(accuracy)
+
+    print(f"\nTest set: Average loss: {test_loss:.4f}, "
+          f"Accuracy: {correct}/{len(test_loader.dataset)} "
+          f"({accuracy:.2f}%)\n")
+
+    return test_loss,accuracy
+
+
+
+model =  Net().to(device)
+optimizer, scheduler = get_optimizer_and_scheduler(model,len(train_loader), EPOCHS=50)
+
+if __name__ == "__main__":
+    EPOCHS = 200
+    target_acc = 85.0
+    epoch = 0
+    best_acc = 0.0
+    # for epoch in range(EPOCHS):
+    while True:
+        epoch+=1
+        print("EPOCH:", epoch)
+        print(datetime.now().strftime("%d%m%Y-%H%M"))
+        train(model, device, train_loader, optimizer, scheduler, epoch+1)
+        print(datetime.now().strftime("%d%m%Y-%H%M"))
+        val_loss,val_acc=test(model, device, test_loader)
+        if val_acc > best_acc:
+            best_acc = val_acc
+
+        print(f"Validation Accuracy: {val_acc:.2f}% | Best Accuracy: {best_acc:.2f}%")
+        print("-----------------------------------------------")
+    
+        if val_acc >= target_acc:
+            print(f"Target reached! Accuracy = {val_acc:.2f}% at epoch {epoch}")
+            break
+    
+        if epoch >= EPOCHS:  # safeguard stop
+            print(f"Max epochs {EPOCHS} reached. Best Accuracy = {best_acc:.2f}%")
+            break
+        
+        print("-----------------------------------------------")
+    import matplotlib.pyplot as plt
+    fig, axs = plt.subplots(2,2,figsize=(15,10))
+
+    # axs[0, 0].plot(train_losses)
+    axs[0, 0].plot([loss for loss in train_losses], label='Training Loss')
+    axs[0, 0].set_title("Training Loss")
+    axs[0, 0].legend()
+
+    axs[1, 0].plot([acc for acc in train_acc], label="Train Accuracy")
+    axs[1, 0].set_title("Training Accuracy")
+    axs[1, 0].legend()
+    
+    axs[0, 1].plot([loss for loss in test_losses], label="Test Loss", color="orange")
+    axs[0, 1].set_title("Test Loss")
+    axs[0, 1].legend()
+
+    axs[1, 1].plot([acc for acc in test_acc], label="Test Accuracy", color="green")
+    axs[1, 1].set_title("Test Accuracy")
+    axs[1, 1].legend()
+        
+    # Format timestamp as DDMMYYYY-HHMM
+    
+    timestamp = datetime.now().strftime("%d%m%Y-%H%M")
+
+    # Save with timestamp in filename
+    filename = f"training_results-{timestamp}.png"
+    plt.tight_layout()
+    plt.savefig(filename, dpi=300)
+
+    print(f"Plot saved as {filename}")
+    # plt.show()
+================================================================================================================================
+
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+
+        # C1: Normal Conv
+        self.conv1 = nn.Conv2d(3, 32, 3, stride=2, padding=1, bias=False)
+        self.bn1   = nn.BatchNorm2d(32)
+
+        # C2: Depthwise Separable Conv
+        self.dw2   = nn.Conv2d(32, 32, 3, stride=2, padding=1, groups=32, bias=False)  # depthwise
+        self.pw2   = nn.Conv2d(32, 64, 1, stride=1, bias=False)  # pointwise
+        self.bn2   = nn.BatchNorm2d(64)
+
+        # C3: Dilated Conv (receptive field booster)
+        self.conv3 = nn.Conv2d(64, 128, 3, stride=1, padding=2, dilation=2, bias=False)
+        self.bn3   = nn.BatchNorm2d(128)
+
+        # C4: Normal Conv (downsample)
+        self.conv4 = nn.Conv2d(128, 96, 3, stride=2, padding=1, bias=False)
+        self.bn4   = nn.BatchNorm2d(96)
+
+        # Final 1x1 conv + GAP
+        self.conv1x1 = nn.Conv2d(96, 10, 1, bias=False)
+        self.gap     = nn.AdaptiveAvgPool2d(1)
+
+    def forward(self, x):
+        x = F.relu(self.bn1(self.conv1(x)))             # C1
+        x = F.relu(self.bn2(self.pw2(self.dw2(x))))     # C2 (DW Sep)
+        x = F.relu(self.bn3(self.conv3(x)))             # C3 (Dilated)
+        x = F.relu(self.bn4(self.conv4(x)))             # C4
+        x = self.conv1x1(x)                             # 1x1 conv
+        x = self.gap(x)                                 # GAP
+        x = x.view(-1, 10)
+        return F.log_softmax(x, dim=1)
+
+
+
+def get_optimizer_and_scheduler(model, train_loader_len, EPOCHS,lr=0.01, momentum=0.9,):
+    optimizer = torch.optim.SGD(model.parameters(), lr=lr, momentum=momentum,weight_decay=1e-4)
+    scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr=0.05, steps_per_epoch=train_loader_len, epochs=EPOCHS, anneal_strategy='cos',pct_start=0.2,div_factor=10.0,final_div_factor=100.0 )
+    return optimizer, scheduler
+================================================================================================================================

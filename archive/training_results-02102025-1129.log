@@ -1,0 +1,763 @@
+(.venv) PS C:\Raghu\MyLearnings\ERA_V4\S7-27092025\cifar10_image_classication> python .\ExperimentCIFAR10.py
+Files already downloaded and verified
+Files already downloaded and verified
+CUDA Available? True
+cuda
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1            [-1, 8, 16, 16]             224
+       BatchNorm2d-2            [-1, 8, 16, 16]              16
+            Conv2d-3             [-1, 16, 8, 8]           1,168
+       BatchNorm2d-4             [-1, 16, 8, 8]              32
+            Conv2d-5             [-1, 32, 4, 4]           4,640
+       BatchNorm2d-6             [-1, 32, 4, 4]              64
+            Conv2d-7             [-1, 64, 2, 2]          18,496
+       BatchNorm2d-8             [-1, 64, 2, 2]             128
+            Conv2d-9            [-1, 128, 1, 1]          73,856
+      BatchNorm2d-10            [-1, 128, 1, 1]             256
+           Conv2d-11             [-1, 32, 1, 1]           4,128
+           Conv2d-12              [-1, 8, 1, 1]             264
+           Conv2d-13             [-1, 16, 1, 1]           1,168
+      BatchNorm2d-14             [-1, 16, 1, 1]              32
+           Conv2d-15             [-1, 32, 1, 1]           4,640
+      BatchNorm2d-16             [-1, 32, 1, 1]              64
+           Conv2d-17             [-1, 64, 1, 1]          18,496
+      BatchNorm2d-18             [-1, 64, 1, 1]             128
+           Conv2d-19            [-1, 128, 1, 1]          73,856
+      BatchNorm2d-20            [-1, 128, 1, 1]             256
+           Conv2d-21             [-1, 64, 1, 1]           8,256
+           Conv2d-22             [-1, 10, 1, 1]             650
+AdaptiveAvgPool2d-23             [-1, 10, 1, 1]               0
+================================================================
+Total params: 210,818
+Trainable params: 210,818
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.01
+Forward/backward pass size (MB): 0.07
+Params size (MB): 0.80
+Estimated Total Size (MB): 0.88
+----------------------------------------------------------------
+EPOCH: 1
+02102025-1037
+  0%|                                                                                                                                                                                     | 0/782 [00:00<?, ?it/s]C:\Raghu\MyLearnings\ERA_V4\S7-27092025\cifar10_image_classication\.venv\Lib\site-packages\torch\autograd\graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at ..\aten\src\ATen\native\cudnn\Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Epoch 1 Loss=1.8368 Batch_id=781 Accuracy=32.97: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.10it/s]
+02102025-1038
+
+Test set: Average loss: 1.5799, Accuracy: 4312/10000 (43.12%)
+
+-----------------------------------------------
+EPOCH: 2
+02102025-1038
+Epoch 2 Loss=1.4371 Batch_id=781 Accuracy=42.28: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.15it/s] 
+02102025-1039
+
+Test set: Average loss: 1.4646, Accuracy: 4712/10000 (47.12%)
+
+-----------------------------------------------
+EPOCH: 3
+02102025-1039
+Epoch 3 Loss=1.1411 Batch_id=781 Accuracy=44.61: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.35it/s] 
+02102025-1040
+
+Test set: Average loss: 1.3897, Accuracy: 5018/10000 (50.18%)
+
+-----------------------------------------------
+EPOCH: 4
+02102025-1040
+Epoch 4 Loss=1.6336 Batch_id=781 Accuracy=47.32: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.32it/s] 
+02102025-1041
+
+Test set: Average loss: 1.3124, Accuracy: 5286/10000 (52.86%)
+
+-----------------------------------------------
+EPOCH: 5
+02102025-1041
+Epoch 5 Loss=1.4968 Batch_id=781 Accuracy=48.86: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.31it/s] 
+02102025-1042
+
+Test set: Average loss: 1.2743, Accuracy: 5330/10000 (53.30%)
+
+-----------------------------------------------
+EPOCH: 6
+02102025-1043
+Epoch 6 Loss=1.3587 Batch_id=781 Accuracy=50.47: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:00<00:00, 13.03it/s] 
+02102025-1044
+
+Test set: Average loss: 1.2364, Accuracy: 5566/10000 (55.66%)
+
+-----------------------------------------------
+EPOCH: 7
+02102025-1044
+Epoch 7 Loss=1.3815 Batch_id=781 Accuracy=51.98: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.16it/s] 
+02102025-1045
+
+Test set: Average loss: 1.1981, Accuracy: 5666/10000 (56.66%)
+
+-----------------------------------------------
+EPOCH: 8
+02102025-1045
+Epoch 8 Loss=1.3157 Batch_id=781 Accuracy=53.23: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.13it/s] 
+02102025-1046
+
+Test set: Average loss: 1.1434, Accuracy: 5896/10000 (58.96%)
+
+-----------------------------------------------
+EPOCH: 9
+02102025-1046
+Epoch 9 Loss=1.2174 Batch_id=781 Accuracy=54.28: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.07it/s] 
+02102025-1047
+
+Test set: Average loss: 1.1414, Accuracy: 5855/10000 (58.55%)
+
+-----------------------------------------------
+EPOCH: 10
+02102025-1047
+Epoch 10 Loss=1.4369 Batch_id=781 Accuracy=55.36: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:00<00:00, 13.01it/s] 
+02102025-1048
+
+Test set: Average loss: 1.1196, Accuracy: 6024/10000 (60.24%)
+
+-----------------------------------------------
+EPOCH: 11
+02102025-1048
+Epoch 11 Loss=0.9636 Batch_id=781 Accuracy=56.47: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.17it/s] 
+02102025-1049
+
+Test set: Average loss: 1.0939, Accuracy: 6182/10000 (61.82%)
+
+-----------------------------------------------
+EPOCH: 12
+02102025-1049
+Epoch 12 Loss=1.6008 Batch_id=781 Accuracy=57.05: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.16it/s] 
+02102025-1050
+
+Test set: Average loss: 1.0383, Accuracy: 6334/10000 (63.34%)
+
+-----------------------------------------------
+EPOCH: 13
+02102025-1050
+Epoch 13 Loss=1.5262 Batch_id=781 Accuracy=57.74: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.19it/s] 
+02102025-1051
+
+Test set: Average loss: 1.0389, Accuracy: 6349/10000 (63.49%)
+
+-----------------------------------------------
+EPOCH: 14
+02102025-1051
+Epoch 14 Loss=2.1158 Batch_id=781 Accuracy=58.09: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.29it/s] 
+02102025-1052
+
+Test set: Average loss: 1.0285, Accuracy: 6357/10000 (63.57%)
+
+-----------------------------------------------
+EPOCH: 15
+02102025-1052
+Epoch 15 Loss=0.7697 Batch_id=781 Accuracy=58.78: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:00<00:00, 12.93it/s] 
+02102025-1053
+
+Test set: Average loss: 1.0006, Accuracy: 6470/10000 (64.70%)
+
+-----------------------------------------------
+EPOCH: 16
+02102025-1053
+Epoch 16 Loss=0.6565 Batch_id=781 Accuracy=59.27: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.21it/s] 
+02102025-1054
+
+Test set: Average loss: 1.0124, Accuracy: 6460/10000 (64.60%)
+
+-----------------------------------------------
+EPOCH: 17
+02102025-1054
+Epoch 17 Loss=0.7095 Batch_id=781 Accuracy=59.72: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.33it/s] 
+02102025-1055
+
+Test set: Average loss: 1.0074, Accuracy: 6440/10000 (64.40%)
+
+-----------------------------------------------
+EPOCH: 18
+02102025-1055
+Epoch 18 Loss=1.2371 Batch_id=781 Accuracy=60.05: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.12it/s] 
+02102025-1056
+
+Test set: Average loss: 0.9662, Accuracy: 6623/10000 (66.23%)
+
+-----------------------------------------------
+EPOCH: 19
+02102025-1056
+Epoch 19 Loss=1.1471 Batch_id=781 Accuracy=60.34: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.07it/s] 
+02102025-1057
+
+Test set: Average loss: 1.0053, Accuracy: 6420/10000 (64.20%)
+
+-----------------------------------------------
+EPOCH: 20
+02102025-1057
+Epoch 20 Loss=1.6341 Batch_id=781 Accuracy=60.88: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:00<00:00, 12.99it/s] 
+02102025-1058
+
+Test set: Average loss: 0.9692, Accuracy: 6642/10000 (66.42%)
+
+-----------------------------------------------
+EPOCH: 21
+02102025-1058
+Epoch 21 Loss=1.3154 Batch_id=781 Accuracy=60.82: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.24it/s] 
+02102025-1059
+
+Test set: Average loss: 0.9585, Accuracy: 6651/10000 (66.51%)
+
+-----------------------------------------------
+EPOCH: 22
+02102025-1059
+Epoch 22 Loss=0.8500 Batch_id=781 Accuracy=61.20: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.32it/s] 
+02102025-1100
+
+Test set: Average loss: 0.9923, Accuracy: 6533/10000 (65.33%)
+
+-----------------------------------------------
+EPOCH: 23
+02102025-1100
+Epoch 23 Loss=0.9255 Batch_id=781 Accuracy=61.45: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.46it/s] 
+02102025-1101
+
+Test set: Average loss: 0.9622, Accuracy: 6606/10000 (66.06%)
+
+-----------------------------------------------
+EPOCH: 24
+02102025-1101
+Epoch 24 Loss=1.6725 Batch_id=781 Accuracy=61.78: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.13it/s] 
+02102025-1102
+
+Test set: Average loss: 0.9471, Accuracy: 6683/10000 (66.83%)
+
+-----------------------------------------------
+EPOCH: 25
+02102025-1102
+Epoch 25 Loss=1.2074 Batch_id=781 Accuracy=62.24: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.14it/s] 
+02102025-1103
+
+Test set: Average loss: 0.9329, Accuracy: 6762/10000 (67.62%)
+
+-----------------------------------------------
+EPOCH: 26
+02102025-1103
+Epoch 26 Loss=1.3583 Batch_id=781 Accuracy=62.48: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.44it/s] 
+02102025-1104
+
+Test set: Average loss: 0.9248, Accuracy: 6733/10000 (67.33%)
+
+-----------------------------------------------
+EPOCH: 27
+02102025-1104
+Epoch 27 Loss=1.1133 Batch_id=781 Accuracy=62.54: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.35it/s] 
+02102025-1105
+
+Test set: Average loss: 0.9409, Accuracy: 6713/10000 (67.13%)
+
+-----------------------------------------------
+EPOCH: 28
+02102025-1105
+Epoch 28 Loss=0.7643 Batch_id=781 Accuracy=62.87: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.25it/s] 
+02102025-1106
+
+Test set: Average loss: 0.9143, Accuracy: 6816/10000 (68.16%)
+
+-----------------------------------------------
+EPOCH: 29
+02102025-1106
+Epoch 29 Loss=1.1985 Batch_id=781 Accuracy=62.71: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.36it/s] 
+02102025-1107
+
+Test set: Average loss: 0.9211, Accuracy: 6778/10000 (67.78%)
+
+-----------------------------------------------
+EPOCH: 30
+02102025-1107
+Epoch 30 Loss=0.5449 Batch_id=781 Accuracy=63.22: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.18it/s] 
+02102025-1108
+
+Test set: Average loss: 0.8831, Accuracy: 6918/10000 (69.18%)
+
+-----------------------------------------------
+EPOCH: 31
+02102025-1108
+Epoch 31 Loss=2.1094 Batch_id=781 Accuracy=63.33: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.38it/s] 
+02102025-1109
+
+Test set: Average loss: 0.8947, Accuracy: 6828/10000 (68.28%)
+
+-----------------------------------------------
+EPOCH: 32
+02102025-1109
+Epoch 32 Loss=1.0362 Batch_id=781 Accuracy=63.99: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.36it/s] 
+02102025-1110
+
+Test set: Average loss: 0.8939, Accuracy: 6913/10000 (69.13%)
+
+-----------------------------------------------
+EPOCH: 33
+02102025-1110
+Epoch 33 Loss=1.3422 Batch_id=781 Accuracy=64.03: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.35it/s] 
+02102025-1111
+
+Test set: Average loss: 0.8737, Accuracy: 6958/10000 (69.58%)
+
+-----------------------------------------------
+EPOCH: 34
+02102025-1111
+Epoch 34 Loss=1.5820 Batch_id=781 Accuracy=64.46: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.34it/s] 
+02102025-1112
+
+Test set: Average loss: 0.8893, Accuracy: 6905/10000 (69.05%)
+
+-----------------------------------------------
+EPOCH: 35
+02102025-1112
+Epoch 35 Loss=1.1696 Batch_id=781 Accuracy=64.71: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.06it/s] 
+02102025-1113
+
+Test set: Average loss: 0.8666, Accuracy: 6992/10000 (69.92%)
+
+-----------------------------------------------
+EPOCH: 36
+02102025-1113
+Epoch 36 Loss=1.4042 Batch_id=781 Accuracy=65.19: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:02<00:00, 12.53it/s] 
+02102025-1114
+
+Test set: Average loss: 0.8574, Accuracy: 6993/10000 (69.93%)
+
+-----------------------------------------------
+EPOCH: 37
+02102025-1114
+Epoch 37 Loss=1.1460 Batch_id=781 Accuracy=65.34: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:03<00:00, 12.23it/s] 
+02102025-1115
+
+Test set: Average loss: 0.8460, Accuracy: 7074/10000 (70.74%)
+
+-----------------------------------------------
+EPOCH: 38
+02102025-1116
+Epoch 38 Loss=0.9440 Batch_id=781 Accuracy=65.51: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.17it/s] 
+02102025-1117
+
+Test set: Average loss: 0.8545, Accuracy: 7045/10000 (70.45%)
+
+-----------------------------------------------
+EPOCH: 39
+02102025-1117
+Epoch 39 Loss=0.8856 Batch_id=781 Accuracy=66.15: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:00<00:00, 12.88it/s] 
+02102025-1118
+
+Test set: Average loss: 0.8482, Accuracy: 7035/10000 (70.35%)
+
+-----------------------------------------------
+EPOCH: 40
+02102025-1118
+Epoch 40 Loss=0.9940 Batch_id=781 Accuracy=66.57: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:00<00:00, 13.02it/s] 
+02102025-1119
+
+Test set: Average loss: 0.8409, Accuracy: 7038/10000 (70.38%)
+
+-----------------------------------------------
+EPOCH: 41
+02102025-1119
+Epoch 41 Loss=1.6310 Batch_id=781 Accuracy=66.60: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:00<00:00, 12.84it/s] 
+02102025-1120
+
+Test set: Average loss: 0.8432, Accuracy: 7095/10000 (70.95%)
+
+-----------------------------------------------
+EPOCH: 42
+02102025-1120
+Epoch 42 Loss=0.9244 Batch_id=781 Accuracy=67.46: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.18it/s] 
+02102025-1121
+
+Test set: Average loss: 0.8245, Accuracy: 7148/10000 (71.48%)
+
+-----------------------------------------------
+EPOCH: 43
+02102025-1121
+Epoch 43 Loss=0.5135 Batch_id=781 Accuracy=67.72: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.21it/s] 
+02102025-1122
+
+Test set: Average loss: 0.8170, Accuracy: 7167/10000 (71.67%)
+
+-----------------------------------------------
+EPOCH: 44
+02102025-1122
+Epoch 44 Loss=1.2706 Batch_id=781 Accuracy=67.88: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.25it/s] 
+02102025-1123
+
+Test set: Average loss: 0.8040, Accuracy: 7203/10000 (72.03%)
+
+-----------------------------------------------
+EPOCH: 45
+02102025-1123
+Epoch 45 Loss=0.9416 Batch_id=781 Accuracy=68.32: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.24it/s] 
+02102025-1124
+
+Test set: Average loss: 0.8037, Accuracy: 7196/10000 (71.96%)
+
+-----------------------------------------------
+EPOCH: 46
+02102025-1124
+Epoch 46 Loss=0.6932 Batch_id=781 Accuracy=68.63: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:58<00:00, 13.27it/s] 
+02102025-1125
+
+Test set: Average loss: 0.7940, Accuracy: 7239/10000 (72.39%)
+
+-----------------------------------------------
+EPOCH: 47
+02102025-1125
+Epoch 47 Loss=1.3360 Batch_id=781 Accuracy=68.73: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.04it/s] 
+02102025-1126
+
+Test set: Average loss: 0.7918, Accuracy: 7245/10000 (72.45%)
+
+-----------------------------------------------
+EPOCH: 48
+02102025-1126
+Epoch 48 Loss=1.1427 Batch_id=781 Accuracy=69.18: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.23it/s] 
+02102025-1127
+
+Test set: Average loss: 0.7920, Accuracy: 7235/10000 (72.35%)
+
+-----------------------------------------------
+EPOCH: 49
+02102025-1127
+Epoch 49 Loss=0.5717 Batch_id=781 Accuracy=69.18: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.04it/s] 
+02102025-1128
+
+Test set: Average loss: 0.7886, Accuracy: 7259/10000 (72.59%)
+
+-----------------------------------------------
+EPOCH: 50
+02102025-1128
+Epoch 50 Loss=0.9214 Batch_id=781 Accuracy=69.14: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [00:59<00:00, 13.25it/s] 
+02102025-1129
+
+Test set: Average loss: 0.7884, Accuracy: 7242/10000 (72.42%)
+
+-----------------------------------------------
+Plot saved as training_results-02102025-1129.png
+(.venv) PS C:\Raghu\MyLearnings\ERA_V4\S7-27092025\cifar10_image_classication> 
+
+
+
+====================================================================================================================================================
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        
+
+        self.conv1 = nn.Conv2d(3, 8, kernel_size=3, stride=2, padding=1)
+        self.bn1   = nn.BatchNorm2d(8)
+
+        self.conv2 = nn.Conv2d(8, 16, kernel_size=3, stride=2, padding=1)
+        self.bn2   = nn.BatchNorm2d(16)
+
+        self.conv3 = nn.Conv2d(16, 32, kernel_size=3, stride=2, padding=1)
+        self.bn3   = nn.BatchNorm2d(32)
+
+        self.conv4 = nn.Conv2d(32, 64, kernel_size=3, stride=2, padding=1)
+        self.bn4   = nn.BatchNorm2d(64)
+
+
+        self.conv9 = nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1)
+        self.bn9   = nn.BatchNorm2d(128)
+        
+
+        # self.Trans_1_1 = nn.Conv2d(128, 8, kernel_size=1, stride=1, padding=0)
+        # self.bn4   = nn.BatchNorm2d(128)
+        self.Trans_1_1_1 = nn.Conv2d(128, 32, kernel_size=1, stride=1, padding=0)
+
+        self.Trans_1_1_2 = nn.Conv2d(32, 8, kernel_size=1, stride=1, padding=0)
+
+        self.conv5 = nn.Conv2d(8, 16, kernel_size=3, stride=2, padding=1)
+        self.bn5   = nn.BatchNorm2d(16)    
+
+        self.conv6 = nn.Conv2d(16, 32, kernel_size=3, stride=2, padding=1)
+        self.bn6   = nn.BatchNorm2d(32)
+
+        self.conv7 = nn.Conv2d(32, 64, kernel_size=3, stride=2, padding=1)
+        self.bn7   = nn.BatchNorm2d(64)
+
+        self.conv8 = nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1)
+        self.bn8   = nn.BatchNorm2d(128)
+
+        # self.conv5 = nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1)
+        # self.bn5   = nn.BatchNorm2d(128)
+
+        self.conv1x1_1 = nn.Conv2d(128, 64, kernel_size=1)
+
+        self.conv1x1_2 = nn.Conv2d(64, 10, kernel_size=1)
+
+        self.gap = nn.AdaptiveAvgPool2d((1, 1))
+
+    def forward(self, x):
+        x = F.relu(self.bn1(self.conv1(x)))   # 3 -> 8
+        x = F.relu(self.bn2(self.conv2(x)))   # 8 -> 16
+        x = F.relu(self.bn3(self.conv3(x)))   # 16 -> 32
+        x = F.relu(self.bn4(self.conv4(x)))   # 32 -> 64
+        x = F.relu(self.bn9(self.conv9(x)))   # 64 -> 128
+        x = self.Trans_1_1_1(x)               # 128 -> 32
+        x = self.Trans_1_1_2(x)               # 32 -> 8
+        x = F.relu(self.bn5(self.conv5(x)))   # 8 -> 16
+        x = F.relu(self.bn6(self.conv6(x)))   # 16 -> 32
+        x = F.relu(self.bn7(self.conv7(x)))   # 32 -> 64
+        x = F.relu(self.bn8(self.conv8(x)))   # 64 -> 128
+
+        x = self.conv1x1_1(x)                   # 128 -> 10
+        x = self.conv1x1_2(x)
+        x = self.gap(x)                       # GAP
+        x = x.view(-1, 10)
+        return F.log_softmax(x, dim=1)
+
+def get_optimizer_and_scheduler(model, train_loader_len, EPOCHS,lr=0.01, momentum=0.9,):
+    optimizer = torch.optim.SGD(model.parameters(), lr=lr, momentum=momentum,weight_decay=1e-4)
+    scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr=0.05, steps_per_epoch=train_loader_len, epochs=EPOCHS, anneal_strategy='cos',pct_start=0.2,div_factor=10.0,final_div_factor=100.0 )
+    return optimizer, scheduler
+
+====================================================================================================================================================
+
+
+from __future__ import print_function
+import torch
+import torch.nn.functional as F
+import torch.optim as optim
+from torchvision import datasets, transforms
+from torchsummary import summary
+from datetime import datetime
+from ModelCIFAR10 import Net, get_optimizer_and_scheduler
+import albumentations as A
+from albumentations.pytorch import ToTensorV2
+import numpy as np
+
+class AlbumentationsTransform:
+    def __init__(self, transform):
+        self.transform = transform
+
+    def __call__(self, img):
+        # Albumentations works with numpy, so convert PIL → numpy
+        img = np.array(img)
+        augmented = self.transform(image=img)
+        return augmented["image"]
+
+
+# Train Phase transformations
+# train_transforms = transforms.Compose([
+#                                       #  transforms.Resize((28, 28)),
+#                                       #  transforms.ColorJitter(brightness=0.10, contrast=0.1, saturation=0.10, hue=0.1),
+#                                       transforms.RandomHorizontalFlip(p=0.5),   # NEW: horizontal flip
+#                                       transforms.RandomAffine(degrees=15, translate=(0.1, 0.1), scale=(0.9, 1.1)),
+#                                     #   transforms.Rand
+                                                
+#                                     #    transforms.RandomRotation((-10.0, 10.0), fill=(1,)),
+#                                     #    transforms.RandomAffine(degrees=7, translate=(0.05, 0.05), scale=(0.9, 1.1)),
+#                                        transforms.ToTensor(),
+#                                        transforms.Normalize((0.1307,), (0.3081,)) # The mean and std have to be sequences (e.g., tuples), therefore you should add a comma after the values.
+#                                        # Note the difference between (0.1307) and (0.1307,)
+#                                        ])
+
+train_transforms = AlbumentationsTransform(A.Compose([
+    A.HorizontalFlip(p=0.5),
+    A.Affine(translate_percent={"x": 0.05, "y": 0.05},
+         scale=(0.9, 1.1),
+         rotate=(-10, 10),
+         p=0.5),
+    A.CoarseDropout(
+        num_holes_range=(1, 1),
+        hole_height_range=(16, 16),
+        hole_width_range=(16, 16),
+        fill = (125, 123, 114),
+        fill_mask = None,
+        p=0.5
+),
+    A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
+    ToTensorV2(),
+]))
+
+# Test Phase transformations
+# test_transforms = transforms.Compose([
+#                                       #  transforms.Resize((28, 28)),
+#                                       #  transforms.ColorJitter(brightness=0.10, contrast=0.1, saturation=0.10, hue=0.1),
+#                                        transforms.ToTensor(),
+#                                        transforms.Normalize((0.1307,), (0.3081,))
+#                                        ])
+
+test_transforms = AlbumentationsTransform(A.Compose([
+    A.Normalize(mean=(0.4914, 0.4822, 0.4465),
+                std=(0.2023, 0.1994, 0.2010)),
+    ToTensorV2()
+]))
+
+"""# Dataset and Creating Train/Test Split"""
+
+# train = datasets.MNIST('./data', train=True, download=True, transform=train_transforms)
+# test = datasets.MNIST('./data', train=False, download=True, transform=test_transforms)
+
+train = datasets.CIFAR10('./data', train=True, download=True, transform=train_transforms)
+test = datasets.CIFAR10('./data', train=False, download=True, transform=test_transforms)
+
+SEED = 1
+torch.backends.cudnn.benchmark = False
+torch.backends.cudnn.deterministic = True
+# CUDA?
+cuda = torch.cuda.is_available()
+print("CUDA Available?", cuda)
+
+# For reproducibility
+torch.manual_seed(SEED)
+
+if cuda:
+    torch.cuda.manual_seed(SEED)
+
+# dataloader arguments - something you'll fetch these from cmdprmt
+dataloader_args_train = dict(shuffle=True, batch_size=64, num_workers=0, pin_memory=True) if cuda else dict(shuffle=True, batch_size=64)
+
+# train dataloader
+train_loader = torch.utils.data.DataLoader(train, **dataloader_args_train)
+
+dataloader_args_test = dict(shuffle=False, batch_size=1000, num_workers=0, pin_memory=True) if cuda else dict(shuffle=True, batch_size=64)
+# test dataloader
+test_loader = torch.utils.data.DataLoader(test, **dataloader_args_test)
+
+
+use_cuda = torch.cuda.is_available()
+device = torch.device("cuda" if use_cuda else "cpu")
+print(device)
+model = Net().to(device)
+summary(model, input_size=(3, 32, 32))
+
+
+from tqdm import tqdm
+
+train_losses = []
+test_losses = []
+train_acc = []
+test_acc = []
+
+
+def train(model, device, train_loader, optimizer, scheduler, epoch):
+  model.train()
+  pbar = tqdm(train_loader)
+  correct = 0
+  processed = 0
+  running_loss = 0.0
+  for batch_idx, (data, target) in enumerate(pbar):
+    # get samples
+    data, target = data.to(device), target.to(device)
+
+    # Init
+    optimizer.zero_grad()
+    # In PyTorch, we need to set the gradients to zero before starting to do backpropragation because PyTorch accumulates the gradients on subsequent backward passes.
+    # Because of this, when you start your training loop, ideally you should zero out the gradients so that you do the parameter update correctly.
+
+    # Predict
+    y_pred = model(data)
+
+    # Calculate loss
+    loss = F.nll_loss(y_pred, target)
+    # train_losses.append(loss.item())
+
+    # Backpropagation
+    loss.backward()
+    optimizer.step()
+
+    scheduler.step()
+    running_loss += loss.item()
+
+    # Update pbar-tqdm
+
+    pred = y_pred.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
+    correct += pred.eq(target.view_as(pred)).sum().item()
+    processed += len(data)
+
+    pbar.set_description(
+        desc=f'Epoch {epoch} Loss={loss.item():.4f} '
+             f'Batch_id={batch_idx} '
+             f'Accuracy={100*correct/processed:0.2f}'
+    )
+
+    # train_losses.append(loss / len(train_loader))
+    train_losses.append(loss.item()) 
+    train_acc.append(100. * correct / processed)
+
+def test(model, device, test_loader):
+    model.eval()
+    test_loss = 0
+    correct = 0
+    with torch.no_grad():
+        for data, target in test_loader:
+            data, target = data.to(device), target.to(device)
+            output = model(data)
+            test_loss += F.nll_loss(output, target, reduction='sum').item()  # sum up batch loss
+            pred = output.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
+            correct += pred.eq(target.view_as(pred)).sum().item()
+
+    test_loss /= len(test_loader.dataset)
+    accuracy = 100. * correct / len(test_loader.dataset)
+
+    test_losses.append(test_loss)
+    test_acc.append(accuracy)
+
+    print(f"\nTest set: Average loss: {test_loss:.4f}, "
+          f"Accuracy: {correct}/{len(test_loader.dataset)} "
+          f"({accuracy:.2f}%)\n")
+
+    return test_loss   
+
+
+
+model =  Net().to(device)
+optimizer, scheduler = get_optimizer_and_scheduler(model,len(train_loader), EPOCHS=50)
+
+if __name__ == "__main__":
+    EPOCHS = 50
+    for epoch in range(EPOCHS):
+        print("EPOCH:", epoch+1)
+        print(datetime.now().strftime("%d%m%Y-%H%M"))
+        train(model, device, train_loader, optimizer, scheduler, epoch+1)
+        print(datetime.now().strftime("%d%m%Y-%H%M"))
+        val_loss=test(model, device, test_loader)
+        
+        print("-----------------------------------------------")
+    import matplotlib.pyplot as plt
+    fig, axs = plt.subplots(2,2,figsize=(15,10))
+
+    # axs[0, 0].plot(train_losses)
+    axs[0, 0].plot([loss for loss in train_losses], label='Training Loss')
+    axs[0, 0].set_title("Training Loss")
+    axs[0, 0].legend()
+
+    axs[1, 0].plot([acc for acc in train_acc], label="Train Accuracy")
+    axs[1, 0].set_title("Training Accuracy")
+    axs[1, 0].legend()
+    
+    axs[0, 1].plot([loss for loss in test_losses], label="Test Loss", color="orange")
+    axs[0, 1].set_title("Test Loss")
+    axs[0, 1].legend()
+
+    axs[1, 1].plot([acc for acc in test_acc], label="Test Accuracy", color="green")
+    axs[1, 1].set_title("Test Accuracy")
+    axs[1, 1].legend()
+        
+    # Format timestamp as DDMMYYYY-HHMM
+    
+    timestamp = datetime.now().strftime("%d%m%Y-%H%M")
+
+    # Save with timestamp in filename
+    filename = f"training_results-{timestamp}.png"
+    plt.tight_layout()
+    plt.savefig(filename, dpi=300)
+
+    print(f"Plot saved as {filename}")
+    # plt.show()
+====================================================================================================================================================
