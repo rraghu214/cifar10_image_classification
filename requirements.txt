@@ -6,3 +6,4 @@ tqdm
 matplotlib
 torchsummary
 numpy==1.26.4
+albumentations

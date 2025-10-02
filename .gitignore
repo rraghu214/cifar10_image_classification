@@ -1,4 +1,6 @@
 *.venv*
 __pycache__/
-*archive*
+# *archive*
 *data*
+cifar10_images_pytorch*
+cifar10_images_enlarged*

@@ -6,26 +6,63 @@ from torchvision import datasets, transforms
 from torchsummary import summary
 from datetime import datetime
 from ModelCIFAR10 import Net, get_optimizer_and_scheduler
+import albumentations as A
+from albumentations.pytorch import ToTensorV2
+import numpy as np
+
+class AlbumentationsTransform:
+    def __init__(self, transform):
+        self.transform = transform
+
+    def __call__(self, img):
+        # Albumentations works with numpy, so convert PIL → numpy
+        img = np.array(img)
+        augmented = self.transform(image=img)
+        return augmented["image"]
 
 
 # Train Phase transformations
-train_transforms = transforms.Compose([
-                                      #  transforms.Resize((28, 28)),
-                                      #  transforms.ColorJitter(brightness=0.10, contrast=0.1, saturation=0.10, hue=0.1),
-                                       transforms.RandomRotation((-10.0, 10.0), fill=(1,)),
-                                       transforms.RandomAffine(degrees=7, translate=(0.05, 0.05), scale=(0.9, 1.1)),
-                                       transforms.ToTensor(),
-                                       transforms.Normalize((0.1307,), (0.3081,)) # The mean and std have to be sequences (e.g., tuples), therefore you should add a comma after the values.
-                                       # Note the difference between (0.1307) and (0.1307,)
-                                       ])
+# train_transforms = transforms.Compose([
+#                                       #  transforms.Resize((28, 28)),
+#                                       #  transforms.ColorJitter(brightness=0.10, contrast=0.1, saturation=0.10, hue=0.1),
+#                                       transforms.RandomHorizontalFlip(p=0.5),   # NEW: horizontal flip
+#                                       transforms.RandomAffine(degrees=15, translate=(0.1, 0.1), scale=(0.9, 1.1)),
+#                                     #   transforms.Rand
+                                                
+#                                     #    transforms.RandomRotation((-10.0, 10.0), fill=(1,)),
+#                                     #    transforms.RandomAffine(degrees=7, translate=(0.05, 0.05), scale=(0.9, 1.1)),
+#                                        transforms.ToTensor(),
+#                                        transforms.Normalize((0.1307,), (0.3081,)) # The mean and std have to be sequences (e.g., tuples), therefore you should add a comma after the values.
+#                                        # Note the difference between (0.1307) and (0.1307,)
+#                                        ])
+
+train_transforms = AlbumentationsTransform(A.Compose([
+    A.HorizontalFlip(p=0.5),
+    A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.1, rotate_limit=10, p=0.5),
+    A.CoarseDropout(
+        max_holes=1, min_holes=1,
+        max_height=16, max_width=16,
+        min_height=16, min_width=16,
+        fill_value=(0.4914, 0.4822, 0.4465),  # CIFAR-10 mean
+        p=0.5
+    ),
+    A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
+    ToTensorV2(),
+]))
 
 # Test Phase transformations
-test_transforms = transforms.Compose([
-                                      #  transforms.Resize((28, 28)),
-                                      #  transforms.ColorJitter(brightness=0.10, contrast=0.1, saturation=0.10, hue=0.1),
-                                       transforms.ToTensor(),
-                                       transforms.Normalize((0.1307,), (0.3081,))
-                                       ])
+# test_transforms = transforms.Compose([
+#                                       #  transforms.Resize((28, 28)),
+#                                       #  transforms.ColorJitter(brightness=0.10, contrast=0.1, saturation=0.10, hue=0.1),
+#                                        transforms.ToTensor(),
+#                                        transforms.Normalize((0.1307,), (0.3081,))
+#                                        ])
+
+test_transforms = AlbumentationsTransform(A.Compose([
+    A.Normalize(mean=(0.4914, 0.4822, 0.4465),
+                std=(0.2023, 0.1994, 0.2010)),
+    ToTensorV2()
+]))
 
 """# Dataset and Creating Train/Test Split"""
 
@@ -145,10 +182,10 @@ def test(model, device, test_loader):
 
 
 model =  Net().to(device)
-optimizer, scheduler = get_optimizer_and_scheduler(model,len(train_loader), EPOCHS=15)
+optimizer, scheduler = get_optimizer_and_scheduler(model,len(train_loader), EPOCHS=50)
 
 if __name__ == "__main__":
-    EPOCHS = 15
+    EPOCHS = 50
     for epoch in range(EPOCHS):
         print("EPOCH:", epoch+1)
         print(datetime.now().strftime("%d%m%Y-%H%M"))
