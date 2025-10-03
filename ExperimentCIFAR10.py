@@ -37,10 +37,15 @@ train_transforms = AlbumentationsTransform(A.Compose([
         hole_width_range=(16, 16),
         fill = (125, 123, 114),
         fill_mask = None,
-        p=0.5
-),
+        p=0.5),
+    
+    # A.cut=
+
     A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
-    ToTensorV2(),
+    # A.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1, p=0.5),
+    A.RandomCrop(32, 32, p=1.0),  # standard for CIFAR-10
+    # A.PadIfNeeded(min_height=40, min_width=40, border_mode=0, fill=(125,123,114), p=1.0),
+    ToTensorV2()
 ]))
 
 
@@ -77,7 +82,7 @@ def train(model, device, train_loader, optimizer, scheduler, epoch):
     y_pred = model(data)
 
     # Calculate loss
-    loss = F.nll_loss(y_pred, target)
+    loss = F.cross_entropy(y_pred, target)
     # train_losses.append(loss.item())
 
     # Backpropagation
@@ -111,7 +116,7 @@ def test(model, device, test_loader):
         for data, target in test_loader:
             data, target = data.to(device), target.to(device)
             output = model(data)
-            test_loss += F.nll_loss(output, target, reduction='sum').item()  # sum up batch loss
+            test_loss += F.cross_entropy(output, target, reduction='sum').item()  # sum up batch loss
             pred = output.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
             correct += pred.eq(target.view_as(pred)).sum().item()
 
@@ -138,9 +143,9 @@ if __name__ == "__main__":
     train_dataset = datasets.CIFAR10('./data', train=True, download=True, transform=train_transforms)
     test_dataset = datasets.CIFAR10('./data', train=False, download=True, transform=test_transforms)
 
-    SEED = 1
-    torch.backends.cudnn.benchmark = False
-    torch.backends.cudnn.deterministic = True
+    SEED = 42
+    torch.backends.cudnn.benchmark = True
+    torch.backends.cudnn.deterministic = False
     # CUDA?
     cuda = torch.cuda.is_available()
     print("CUDA Available?", cuda)
@@ -188,9 +193,22 @@ if __name__ == "__main__":
         val_loss,val_acc=test(model, device, test_loader)
         if val_acc > best_acc:
             best_acc = val_acc
+            torch.save({
+            "epoch": epoch,
+            "model_state_dict": model.state_dict(),
+            "optimizer_state_dict": optimizer.state_dict(), 
+            "scheduler_state_dict": scheduler.state_dict(),
+            "train_losses": train_losses,
+            "test_losses": test_losses,
+            "train_acc": train_acc,
+            "test_acc": test_acc,
+            "best_acc": best_acc,
+            }, "cifar10_best_model.pth"
+        )
+            print(f"Saved best model (acc={best_acc:.2f}%) to cifar10_best_model.pth")
 
         print(f"Validation Accuracy: {val_acc:.2f}% | Best Accuracy: {best_acc:.2f}%")
-        print("-----------------------------------------------")
+        
     
         if val_acc >= target_acc:
             print(f"Target reached! Accuracy = {val_acc:.2f}% at epoch {epoch}")
