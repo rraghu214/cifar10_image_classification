@@ -26,28 +26,28 @@ class Net(nn.Module):
         super(Net, self).__init__()
 
         # C1: Normal Conv
-        self.conv1_1=convolution_regular(in_channels=3,out_channels=32,kernels=3,stride=1,padding=1, dilation=1)
-        self.conv1_2= convolution_regular(in_channels=32,out_channels=64,kernels=3,stride=2,padding=1, dilation=1)
-        self.conv1x1_1=convolution_regular(in_channels=64,out_channels=16,kernels=1,stride=1,padding=0, dilation=1)
+        self.conv1_1=convolution_regular(in_channels=3,out_channels=32,kernels=3,stride=1,padding=1, dilation=1) # 32 x 32 --> 32 x 32 | RF - 3
+        self.conv1_2= convolution_regular(in_channels=32,out_channels=64,kernels=3,stride=2,padding=1, dilation=1) # 32 x 32 --> 16 x 16 | RF - 5
+        self.conv1x1_1=convolution_regular(in_channels=64,out_channels=16,kernels=1,stride=1,padding=0, dilation=1) # 16 x 16 --> 16 x 16 | RF - 5
 
         #C2: Depthwise Separable Conv
-        self.conv2_1=convolution_regular(in_channels=16,out_channels=32,kernels=3,stride=1,padding=1, dilation=1)
-        self.conv2_2=convolution_depthwise_separable(in_channels=32,out_channels=64,kernels=3,stride=2,padding=1, dilation=1)
-        self.conv1x1_2=convolution_regular(in_channels=64,out_channels=32,kernels=1,stride=1,padding=0, dilation=1)
+        self.conv2_1=convolution_regular(in_channels=16,out_channels=32,kernels=3,stride=1,padding=1, dilation=1) # 16 x 16 --> 16 x 16 | RF - 9
+        self.conv2_2=convolution_depthwise_separable(in_channels=32,out_channels=64,kernels=3,stride=2,padding=1, dilation=1) # 16 x 16 --> 8 x 8 | RF - 13
+        self.conv1x1_2=convolution_regular(in_channels=64,out_channels=32,kernels=1,stride=1,padding=0, dilation=1) # 8 x 8 --> 8 x 8 | RF - 13
 
         # C3: Dilated Conv (receptive field booster)
-        self.conv3_1=convolution_regular(in_channels=32,out_channels=64,kernels=3,stride=1,padding=1, dilation=1)
-        self.conv3_2=convolution_regular(in_channels=64,out_channels=128,kernels=3,stride=1,padding=2, dilation=2)
-        self.conv1x1_3=convolution_regular(in_channels=128,out_channels=32,kernels=1,stride=1,padding=0, dilation=1,dropout_val=0.1)
+        self.conv3_1=convolution_regular(in_channels=32,out_channels=64,kernels=3,stride=1,padding=1, dilation=1) # 8 x 8 --> 8 x 8 | RF - 21
+        self.conv3_2=convolution_regular(in_channels=64,out_channels=128,kernels=3,stride=1,padding=2, dilation=2) # 8 x 8 --> 8 x 8 | RF - 37
+        self.conv1x1_3=convolution_regular(in_channels=128,out_channels=32,kernels=1,stride=1,padding=0, dilation=1,dropout_val=0.1) # 8 x 8 --> 8 x 8 | RF - 37
 
         # C4: Normal Conv (downsample)
-        self.conv4_1=convolution_regular(in_channels=32,out_channels=32,kernels=3,stride=1,padding=1, dilation=1)
-        self.conv4_2=convolution_regular(in_channels=32,out_channels=64,kernels=3,stride=2,padding=1, dilation=1)
-        self.conv1x1_4=convolution_regular(in_channels=64,out_channels=128,kernels=1,stride=1,padding=0, dilation=1, dropout_val=0.2)
+        self.conv4_1=convolution_regular(in_channels=32,out_channels=32,kernels=3,stride=1,padding=1, dilation=1) # 8 x 8 --> 8 x 8 | RF - 45
+        self.conv4_2=convolution_regular(in_channels=32,out_channels=64,kernels=3,stride=2,padding=1, dilation=1) # 8 x 8 --> 4 x 4 | RF - 53
+        self.conv1x1_4=convolution_regular(in_channels=64,out_channels=128,kernels=1,stride=1,padding=0, dilation=1, dropout_val=0.2) # 4 x 4 --> 4 x 4 | RF - 53
 
         # Output Block: GAP + FC
-        self.gap     = nn.AdaptiveAvgPool2d(1)
-        self.fc      = nn.Linear(128, 10)
+        self.gap     = nn.AdaptiveAvgPool2d(1) # 4 x 4 --> 1 x 1 | RF - 77
+        self.fc      = nn.Linear(128, 10) # 1 x 1 --> 1 x 1 | RF - 77
         
 
     def forward(self, x):
