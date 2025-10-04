@@ -38,13 +38,8 @@ train_transforms = AlbumentationsTransform(A.Compose([
         fill = (125, 123, 114),
         fill_mask = None,
         p=0.5),
-    
-    # A.cut=
-
     A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
-    # A.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1, p=0.5),
-    A.RandomCrop(32, 32, p=1.0),  # standard for CIFAR-10
-    # A.PadIfNeeded(min_height=40, min_width=40, border_mode=0, fill=(125,123,114), p=1.0),
+    A.RandomCrop(32, 32, p=1.0),
     ToTensorV2()
 ]))
 
